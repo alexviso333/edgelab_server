@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0b1b33">
+<title>edgelab</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%233ddc97'/%3E%3Cpath d='M6 22 L13 15 L18 19 L26 9' stroke='%230b1b33' stroke-width='3' fill='none' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/static/style.css?v=54">
+</head>
+<body>
+<div id="login" class="login hidden">
+  <form id="loginForm">
+    <div class="logo"><svg width="30" height="30" viewBox="0 0 32 32"><rect width="32" height="32" rx="6" fill="#3ddc97"/><path d="M6 22 L13 15 L18 19 L26 9" stroke="#0b1b33" stroke-width="3" fill="none" stroke-linecap="round"/></svg><b>edgelab</b></div>
+    <label class="field">Contraseña<input type="password" id="pw" autocomplete="current-password" autofocus></label>
+    <button class="btn go">Entrar</button>
+    <div id="loginErr" class="small loss"></div>
+  </form>
+</div>
+<div class="app">
+  <aside class="rail">
+    <a class="logo" href="#/"><svg width="30" height="30" viewBox="0 0 32 32"><rect width="32" height="32" rx="6" fill="#3ddc97"/><path d="M6 22 L13 15 L18 19 L26 9" stroke="#0b1b33" stroke-width="3" fill="none" stroke-linecap="round"/></svg><b>edgelab</b></a>
+    <nav class="nav" id="nav"></nav>
+    <div class="rail-foot" id="railFoot"></div>
+  </aside>
+  <main class="main" id="view"></main>
+</div>
+<div id="toast" class="toast hidden" role="status"></div>
+<div id="tip" class="tip hidden"></div>
+<script src="/static/charts.js?v=54"></script>
+<script src="/static/ficha.js?v=54"></script>
+<script src="/static/app.js?v=54"></script>
+<script src="/static/simple.js?v=54"></script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+# Construye la imagen de edgelab y la sube a tu repositorio PRIVADO de Docker Hub cada vez que subes cambios.
+# Render (cuenta nueva) la descarga con tus credenciales de Docker Hub: el código no se ve en ningún sitio.
+# Secretos del repositorio (Settings → Secrets and variables → Actions): DOCKERHUB_USERNAME y DOCKERHUB_TOKEN.
+name: imagen
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      RENDER_HOOK: ${{ secrets.RENDER_DEPLOY_HOOK }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+      - uses: docker/build-push-action@v6
+        with:
+          context: .
+          file: deploy/render/Dockerfile
+          push: true
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/edgelab:latest
+      - name: Avisar a Render para que se actualice
+        if: ${{ env.RENDER_HOOK != '' }}
+        run: curl -fsS -X POST "$RENDER_HOOK"

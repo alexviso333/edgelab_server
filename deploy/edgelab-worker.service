@@ -1,0 +1,16 @@
+[Unit]
+Description=edgelab worker (calendario, cuotas, directo, aprendizaje)
+After=network-online.target
+
+[Service]
+User=edgelab
+WorkingDirectory=/opt/edgelab
+EnvironmentFile=/opt/edgelab/.env
+ExecStart=/opt/edgelab/.venv/bin/python -m edgelab.cli worker
+Restart=always
+RestartSec=20
+MemoryMax=650M
+Nice=10
+
+[Install]
+WantedBy=multi-user.target

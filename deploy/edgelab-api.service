@@ -1,0 +1,16 @@
+[Unit]
+Description=edgelab web/API
+After=network-online.target
+
+[Service]
+User=edgelab
+WorkingDirectory=/opt/edgelab
+EnvironmentFile=/opt/edgelab/.env
+ExecStart=/opt/edgelab/.venv/bin/python -m edgelab.cli api --port 8000
+Restart=always
+RestartSec=5
+MemoryMax=350M
+Nice=5
+
+[Install]
+WantedBy=multi-user.target

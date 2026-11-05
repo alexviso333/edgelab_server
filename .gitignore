@@ -1,0 +1,11 @@
+.env
+data/*.sqlite*
+data/*.pkl
+__pycache__/
+*.pyc
+.pytest_cache/
+
+.venv/
+data/
+__pycache__/
+*.pyc
